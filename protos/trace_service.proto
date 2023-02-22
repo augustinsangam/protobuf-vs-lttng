@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service TraceService {
+  rpc Export(ExportTraceServiceRequest) returns (ExportTraceServiceResponse) {}
+}
+
+message ExportTraceServiceRequest {
+
+  message TraceData {
+    bytes data = 1;
+  }
+
+  repeated TraceData trace_data = 1;
+}
+
+message ExportTraceServiceResponse {
+  bool success = 1;
+  string message = 2;
+}
